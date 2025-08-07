@@ -2,118 +2,237 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SAT Jewells | Coming Soon</title>
-
-  <!-- SEO -->
-  <meta name="description" content="SAT Jewells – Luxury Jewellery Brand. Discover fine diamonds, gold and elegant craftsmanship. Launching soon.">
-  <meta name="keywords" content="Luxury Jewellery, Premium Gold, Diamond Collection, Fine Jewelry, Bridal Jewels, Elegant Accessories, Coming Soon">
-  <meta name="author" content="SAT Jewells">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="SAT Jewells | Coming Soon" />
-  <meta property="og:description" content="Our premium diamond and gold collection is launching soon." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://yourdomain.com/assets/preview.jpg" />
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet" />
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sat Jewells - Unveiling Soon</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
   <style>
-    * {
+    /* -------------------
+     * Basic Setup
+     * ------------------- */
+    body, html {
+      height: 100%;
       margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+      color: #f5f5f5; /* Using a soft white for text */
+      overflow: hidden; /* Prevents scrollbars on the main page */
     }
 
-    body {
-      font-family: 'Open Sans', sans-serif;
-      background: linear-gradient(135deg, #1c1c1c, #111);
-      background-image: url('https://www.transparenttextures.com/patterns/black-linen.png');
-      color: #fff;
-      height: 100vh;
+    /* -------------------
+     * Hero Section with Background
+     * This is the main container for the page.
+     * IMPORTANT: Replace the background-image URL with your own high-quality image.
+     * ------------------- */
+    .hero-section {
+      height: 100vh; /* Full viewport height */
+      position: relative;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       text-align: center;
-      flex-direction: column;
-      padding: 20px;
+      /* Find beautiful, free-to-use images at unsplash.com or pexels.com */
+      background-image: url('https://images.unsplash.com/photo-1611652033939-a7624d7a16b5?q=80&w=2574&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
     }
 
+    /* -------------------
+     * Dark Overlay
+     * This sits on top of the background image to make the text readable.
+     * Adjust the rgba value (e.g., 0.6) to make it darker or lighter.
+     * ------------------- */
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    /* -------------------
+     * Content Wrapper
+     * This holds all the text and elements, ensuring they appear above the overlay.
+     * ------------------- */
+    .content-wrapper {
+      position: relative;
+      z-index: 2;
+      padding: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    /* -------------------
+     * Logo and Typography
+     * ------------------- */
     .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      color: #d4af37;
+      font-size: 4rem; /* Larger font size for impact */
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 2px; /* Adds a touch of class */
       margin-bottom: 0.5rem;
-      letter-spacing: 1px;
     }
 
     .tagline {
-      font-size: 1.2rem;
-      color: #ccc;
-      margin-bottom: 2rem;
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: #d1c6b0; /* A muted gold color */
+      margin-top: 0;
+      font-style: italic;
     }
 
-    .coming-soon {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #fff;
-      margin-bottom: 2rem;
+    .unveiling-text {
+        margin: 40px 0 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 0.9rem;
     }
 
-    .socials {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
+    /* -------------------
+     * Countdown Timer
+     * ------------------- */
+    #countdown {
+        display: flex;
+        justify-content: center;
+        gap: 20px; /* Space between timer units */
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+
+    .time-unit {
+        background: rgba(255, 255, 255, 0.05); /* Subtle transparent background */
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 15px 20px;
+        border-radius: 8px;
+        min-width: 90px;
+    }
+
+    .time-unit span {
+        display: block;
+    }
+
+    .time-unit .number {
+        font-size: 2.5rem;
+        font-weight: 400;
+    }
+
+    .time-unit .label {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 300;
+        margin-top: 5px;
+    }
+
+    /* -------------------
+     * Social Icons
+     * ------------------- */
+    .social-icons a {
+      color: #f5f5f5;
       font-size: 1.5rem;
-      margin-top: 10px;
+      margin: 0 15px;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
 
-    .socials a {
-      color: #d4af37;
-      transition: color 0.3s ease;
-      text-decoration: none;
+    .social-icons a:hover {
+      color: #d1c6b0; /* Hover color matches tagline */
+      transform: scale(1.2); /* Slight zoom effect */
     }
 
-    .socials a:hover {
-      color: #ffffff;
-    }
-
-    .footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.9rem;
-      color: #888;
-    }
-
-    @media (max-width: 768px) {
-      .logo { font-size: 2rem; }
-      .coming-soon { font-size: 1.3rem; }
-      .socials { font-size: 1.2rem; gap: 20px; }
+    /* -------------------
+     * Fade-in Animation
+     * ------------------- */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="logo">SAT Jewells</div>
-  <div class="tagline">Where Elegance Meets Eternity</div>
-  <div class="coming-soon">✨ Our Signature Collection is Coming Soon ✨</div>
+  <div class="hero-section">
+    <div class="content-wrapper">
+      <div class="logo">Sat Jewells</div>
+      <p class="tagline">Elegance in Every Sparkle</p>
+      
+      <p class="unveiling-text">Unveiling Soon</p>
 
-  <div class="socials">
-    <a href="https://www.instagram.com/satjewells/" target="_blank" title="Instagram">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://www.facebook.com/profile.php?id=61578881890535" target="_blank" title="Facebook">
-      <i class="fab fa-facebook-f"></i>
-    </a>
-    <a href="mailto:info@satjewells.com" title="Email">
-      <i class="fas fa-envelope"></i>
-    </a>
+      <div id="countdown">
+        <div class="time-unit">
+          <span class="number" id="days">00</span>
+          <span class="label">Days</span>
+        </div>
+        <div class="time-unit">
+          <span class="number" id="hours">00</span>
+          <span class="label">Hours</span>
+        </div>
+        <div class="time-unit">
+          <span class="number" id="minutes">00</span>
+          <span class="label">Minutes</span>
+        </div>
+        <div class="time-unit">
+          <span class="number" id="seconds">00</span>
+          <span class="label">Seconds</span>
+        </div>
+      </div>
+
+      <div class="social-icons">
+        <a href="https://www.instagram.com/satjewells/" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61578881890535" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="mailto:satjewells@gmail.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+      </div>
+    </div>
   </div>
 
-  <div class="footer">© 2025 SAT Jewells. All rights reserved.</div>
+  <script>
+    // --- Countdown Timer Script ---
+
+    // IMPORTANT: Set your launch date and time here!
+    // Format: "Month Day, Year HH:MM:SS" (e.g., "Oct 25, 2025 10:00:00")
+    const launchDate = new Date("Sep 01, 2025 10:00:00").getTime();
+
+    // Update the countdown every 1 second
+    const countdownFunction = setInterval(function() {
+
+      // Get today's date and time
+      const now = new Date().getTime();
+
+      // Find the distance between now and the launch date
+      const distance = launchDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Add leading zeros if the number is less than 10
+      document.getElementById("days").innerText = days < 10 ? '0' + days : days;
+      document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
+      document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+      document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
+
+      // If the countdown is over, write some text
+      if (distance < 0) {
+        clearInterval(countdownFunction);
+        document.getElementById("countdown").innerHTML = "<div style='font-size: 1.5rem; font-weight: bold;'>We Are Now Live!</div>";
+      }
+    }, 1000);
+  </script>
 
 </body>
 </html>
